@@ -60,3 +60,7 @@ h1 {
 #choosecast .form-group {
   width: 230px;
 }
+
+form .btn {
+  align-self: center;
+}

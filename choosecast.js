@@ -21,43 +21,74 @@ function findAdaptaions(characters) {
 }
 
 function printCast() {
+  const formHTML = document.createElement("form");
+  chooseCastDisplay.appendChild(formHTML);
+  formHTML.classList.add("mw-50");
+  const formSelector = document.querySelector("form");
+
   const characters = ["sherlock", "watson"];
   const viableAdaptations = findAdaptaions(characters);
   console.log(viableAdaptations);
-  const formHTML = document.createElement("form");
 
-  chooseCastDisplay.appendChild(formHTML);
-  const formSelector = document.querySelector("form");
+  /*  for (const character of characters) { */
+  for (let i = 0; i < viableAdaptations.length - 1; i++) {
+    const actors = adaptations[viableAdaptations[i]].actors;
 
-  for (const character of characters) {
-    for (let i = 0; i < viableAdaptations.length; i++) {
-      const html = `<h2 class="text-center mb-5">Who's your favourite ${
-        character.slice(0, 1).toUpperCase() + character.slice(1)
-      }?</h2>
+    const indexCharacter = actors.findIndex(
+      (el) => el.character === characters[i]
+    );
+
+    const html = `<h2 class="text-center mt-5 mb-5">Who's your favourite ${
+      characters[i].slice(0, 1).toUpperCase() + characters[i].slice(1)
+    }?</h2>
                    <div class="row d-flex justify-content-around">
 
                        <div class="form-group col-md-3">
-                           <img src="/assets/rdj.jpg" alt="">
+                           <img src="${
+                             adaptations[viableAdaptations[0]].actors[
+                               indexCharacter
+                             ].img
+                           }" alt="">
                            <div class="d-flex justify-content-center">
                                <input type="radio" class="form-check-input" id="option-0" name="sherlock">
-                               <label class="ps-3" for="option-1">Robert Downey Jr</label>
+                               <label class="ps-3" for="option-1">${
+                                 adaptations[viableAdaptations[0]].actors[
+                                   indexCharacter
+                                 ].actor
+                               }</label>
                            </div>
                        </div>
                        <div class="form-group col-md-3">
-                           <img src="/assets/bc.jpg" alt="">
+                           <img src="${
+                             adaptations[viableAdaptations[1]].actors[
+                               indexCharacter
+                             ].img
+                           }" alt="">
                            <div class="d-flex justify-content-center">
-                               <input type="radio" class="form-check-input" id="option-1" name="sherlock"><label for="option-1" class="ps-3">Benedict Cumberbatch</label>
+                               <input type="radio" class="form-check-input" id="option-1" name="sherlock"><label for="option-1" class="ps-3">${
+                                 adaptations[viableAdaptations[1]].actors[
+                                   indexCharacter
+                                 ].actor
+                               }</label>
                            </div>
                        </div>
                        <div class="form-group col-md-3">
-                           <img src="/assets/jlm.jpg" alt="">
+                           <img src="${
+                             adaptations[viableAdaptations[2]].actors[
+                               indexCharacter
+                             ].img
+                           }" alt="">
                            <div class="d-flex justify-content-center">
                            <input type="radio" class="form-check-input" id="option-2" name="sherlock">
-                           <label class="ps-3" for="option-2">Jonny Lee MIller</label></div>
+                           <label class="ps-3" for="option-2">${
+                             adaptations[viableAdaptations[2]].actors[
+                               indexCharacter
+                             ].actor
+                           }</label></div>
                        </div>
                      </div>`;
-      formSelector.insertAdjacentHTML("beforeend", html);
-    }
+    formSelector.insertAdjacentHTML("beforeend", html);
+    console.log(i);
   }
   const summaryBtn = document.createElement("button");
   summaryBtn.classList.add("btn", "btn-lg", "bg-info");
