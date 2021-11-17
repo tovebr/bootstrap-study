@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Petemoss&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.landing {
+  background: url(/assets/Namnlöst-1.jpg) center center/cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.landing .container {
+  padding-top: 14rem;
+}
+
+h1 {
+  font-family: "Petemoss", cursive;
+  font-size: 12rem;
+  margin-bottom: 6rem;
+}
+
+.btn {
+  width: 11rem;
+  align-self: center;
+}
+
+#adaptations,
+#choosecast {
+  background-color: rgb(48, 47, 47);
+  min-height: 94.2vh;
+  width: 100vw;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card-img-top {
+  height: 175px;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+
+#navbarNavAltMarkup {
+  justify-content: right;
+}
+
+#choosecast {
+  color: #fff;
+}
+
+#choosecast img {
+  border-radius: 50%;
+  height: 230px;
+}
+
+#choosecast .form-group {
+  width: 230px;
+}
