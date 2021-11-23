@@ -4,12 +4,15 @@ function printAdaptations() {
   adaptations.forEach((el, index) => {
     el.id = index;
 
-    const html = `<div id="sherlock-${el.id}" class="card px-0     mx-2 my-2">
+    const html = `<div id="sherlock-${
+      el.id
+    }" class="card px-0 mx-2 my-2 adaptation">
+              <div class="img-container">
                 <img
                   src=${el.img}
                   alt=""
                   class="card-img-top"
-                />
+                /></div>
                 <div class="card-body">
                   <h4 class="card-title">${el.title}</h4>
                   <p class="card-text">

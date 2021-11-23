@@ -2,10 +2,7 @@ const chooseCastDisplay = document.getElementById("choosecast");
 // what characters to add to the quiz
 const characters = ["sherlock", "watson"];
 
-// find out which adaptations have all quiz-characters
-const viableAdaptations = findAdaptaions(characters);
-
-//holds the actor-options of the viable adaptations
+//holds the actor-options sorted by character
 const actorsOptions = [];
 
 let quizTaken = false;
@@ -28,32 +25,14 @@ quizDivContainer.appendChild(formHTML);
 const formSelector = document.querySelector("form");
 
 function createButton(text) {
+  const textFirstWord = text.split(" ");
+  const btnId =
+    textFirstWord[0].slice(0, 1).toLowerCase() + textFirstWord[0].slice(1);
   const btn = document.createElement("button");
+  btn.id = btnId;
   btn.classList.add("btn", "btn-summary", "d-block", "btn-lg", "bg-info");
   btn.innerText = text;
   return btn;
-}
-
-// finds adaptation that has all quiz-characters casted
-function findAdaptaions(characters) {
-  const hasQuizCharacters = [];
-
-  adaptations.forEach((adapt) => {
-    let sum = 0;
-    adapt.actors.forEach((actor) => {
-      actor.character === characters[0] || actor.character === characters[1]
-        ? (sum += 1)
-        : (sum += 0);
-    });
-    hasQuizCharacters.push(sum >= 2 ? 1 : 0);
-  });
-
-  const index = hasQuizCharacters.map((el, index) => {
-    if (el === 1) {
-      return index;
-    }
-  });
-  return index.filter((el) => el > -1 && true);
 }
 
 function printCast() {
@@ -63,26 +42,32 @@ function printCast() {
     }?</h2><div class="row d-flex justify-content-around">`;
     let characterActors = [];
 
-    for (let j = 0; j < viableAdaptations.length; j++) {
-      const actors = adaptations[viableAdaptations[j]].actors;
+    for (let j = 0; j < adaptations.length; j++) {
+      const actors = adaptations[j].actors;
 
       const indexCharacter = actors.findIndex((el) => {
-        return el.character === characters[i];
+        return el.character === characters[i]
+          ? el.character === characters[i]
+          : undefined;
       });
-      characterActors.push(actors[indexCharacter]);
+      characterActors.push(
+        actors[indexCharacter] ? actors[indexCharacter] : undefined
+      );
 
-      html += `<div class="form-group col-md-3">
-              <img src="${actors[indexCharacter].img}" alt="">
-                <div class="d-flex justify-content-center">
-                  <input type="radio" class="form-check-input" id="option-${i}${j}" name="${characters[i]}">
-                  <label class="ps-3" for="option-${i}${j}">${actors[indexCharacter].actor}</label>
-                </div>
-              </div>`;
+      if (actors[indexCharacter]) {
+        html += `<div class="form-group col-md-3">
+                  <img src="${actors[indexCharacter].img}" alt="">
+                    <div class="d-flex justify-content-center">
+                      <input type="radio" class="form-check-input" id="option-${i}${j}" name="${characters[i]}">
+                      <label class="ps-3" for="option-${i}${j}">${actors[indexCharacter].actor}</label>
+                    </div>
+                  </div>`;
+      }
+
+      if (characterActors.length === adaptations.length)
+        actorsOptions.push(characterActors);
     }
     html += `</div>`;
-
-    if (characterActors.length === viableAdaptations.length)
-      actorsOptions.push(characterActors);
     formSelector.insertAdjacentHTML("beforeend", html);
   }
 
@@ -92,7 +77,16 @@ function printCast() {
 printCast();
 
 function printResult(ids) {
-  let html = `<div class="container-sm result-container pt-5 text-light mw-50">
+  const resultDiv = document.createElement("div");
+  resultDiv.id = "result-container";
+  resultDiv.classList.add(
+    "result-container",
+    "container-sm",
+    "pt-5",
+    "text-light",
+    "mw-50"
+  );
+  let html = `
   <h2 class="text-center mb-5">Your dream cast is...</h2><div class="row d-flex justify-content-around">`;
   for (const [i, choosen] of ids.entries()) {
     html += `<div class="form-group col-md-3 text-center">
@@ -104,9 +98,14 @@ function printResult(ids) {
                   <p>${actorsOptions[i][choosen].actor}</p>
               </div>`;
   }
-  html += `</div></div>`;
-  chooseCastDisplay.insertAdjacentHTML("beforeend", html);
-  chooseCastDisplay.appendChild(createButton("Retake Quiz"));
+
+  html += `</div>`;
+
+  resultDiv.innerHTML = html;
+  resultDiv.insertAdjacentElement("beforeend", createButton("Retake Quiz"));
+  chooseCastDisplay.appendChild(resultDiv);
+  const quizResult = document.getElementById("result-container");
+  quizResult.scrollIntoView();
 }
 
 function printError() {
@@ -123,20 +122,36 @@ function printError() {
 
 document.querySelector(".btn-summary").addEventListener("click", (e) => {
   e.preventDefault();
-  document.querySelector(".error-paragraph") &&
-    document
-      .querySelector(".error-paragraph")
-      .parentNode.removeChild(document.querySelector(".error-paragraph"));
-  const radioButtons = Array.from(
-    document.querySelectorAll('input[type = "radio"]')
-  );
-  const checked = radioButtons
-    .filter((el) => el.checked)
-    .map((el) => Number(el.id.slice(-1)));
-  console.log(checked);
-  if (checked.length === characters.length) {
-    printResult(checked);
-  } else {
-    printError();
+  if (!quizTaken) {
+    document.querySelector(".error-paragraph") &&
+      document
+        .querySelector(".error-paragraph")
+        .parentNode.removeChild(document.querySelector(".error-paragraph"));
+    const radioButtons = Array.from(
+      document.querySelectorAll('input[type = "radio"]')
+    );
+    const checked = radioButtons
+      .filter((el) => el.checked)
+      .map((el) => Number(el.id.slice(-1)));
+
+    if (checked.length === characters.length) {
+      printResult(checked);
+      quizTaken = true;
+    } else {
+      printError();
+    }
+  }
+});
+
+chooseCastDisplay.addEventListener("click", (e) => {
+  if (e.target.id === "retake") {
+    chooseCastDisplay.scrollIntoView();
+    const resultDiv = document.getElementById("result-container");
+    resultDiv.parentNode.removeChild(resultDiv);
+    quizTaken = false;
+    const radioButtons = Array.from(
+      document.querySelectorAll("input[type = radio]")
+    );
+    radioButtons.forEach((el) => (el.checked = false));
   }
 });
