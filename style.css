@@ -6,14 +6,30 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+}
+
+#navbarNavAltMarkup {
+  justify-content: right;
+}
+
+.nav-item {
+  text-align: right;
+}
+
 .landing {
   background: url(/assets/Namnlöst-1.jpg) center center/cover no-repeat;
   height: 100vh;
   width: 100vw;
-}
-
-.landing .container {
-  padding-top: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -32,7 +48,7 @@ h1 {
   background-color: rgb(48, 47, 47);
   min-height: 100vh;
   width: 100vw;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 }
 
 .card {
@@ -45,15 +61,30 @@ h1 {
   object-position: 50% 10%;
 }
 
-#navbarNavAltMarkup {
-  justify-content: right;
-}
-
 .adaptation .img-container {
   position: relative;
   height: 175px;
   overflow: hidden;
 }
+
+.adaptation .img-container a {
+  z-index: 3;
+  position: absolute;
+  display: block;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: #fff solid 2px;
+  border-radius: 5px;
+  padding: 0 1rem;
+  background-color: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.adaptation .img-container a:hover {
+  background-color: rgba(10, 110, 128, 0.842);
+}
+
 .adaptation .img-container::before {
   content: "";
   position: absolute;
@@ -79,6 +110,15 @@ h1 {
 
 #choosecast {
   color: #fff;
+  min-height: 100vh;
+}
+
+#choosecast .result-container {
+  max-width: 700px;
+}
+
+#choosecast .result-container h2 {
+  margin-bottom: 4rem;
 }
 
 #choosecast img {
@@ -90,6 +130,7 @@ h1 {
 
 #choosecast .form-group {
   width: 230px;
+  margin-bottom: 2rem;
 }
 
 .btn-summary {
@@ -99,11 +140,50 @@ h1 {
 .result-container {
   font-weight: bold;
   letter-spacing: 1px;
-  height: 80vh;
+  min-height: 80vh;
   margin-top: 20%;
 }
 
 .result-container h3 {
   font-family: "Petemoss", cursive;
   font-size: 4rem;
+}
+
+@media only screen and (max-width: 726px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  .container {
+    width: 19rem;
+    margin: 0 auto;
+  }
+
+  #choosecast .result-container img {
+    width: 100px;
+    height: 100px;
+  }
+  #choosecast .result-container h2 {
+    margin-bottom: 1rem;
+  }
+
+  .result-container button {
+    margin: 0 auto 1rem auto;
+  }
+
+  #choosecast .result-container .form-group:last-child {
+    margin-bottom: 0;
+  }
+  .nav-item:first-child {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 40rem;
+  }
+  #result-container {
+    padding-top: 0;
+  }
 }

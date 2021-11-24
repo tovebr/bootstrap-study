@@ -12,7 +12,10 @@ function printAdaptations() {
                   src=${el.img}
                   alt=""
                   class="card-img-top"
-                /></div>
+                />
+                <a href="${el.imdb}" target="_blank">imdb</a>
+                </div>
+                
                 <div class="card-body">
                   <h4 class="card-title">${el.title}</h4>
                   <p class="card-text">

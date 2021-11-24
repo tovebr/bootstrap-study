@@ -1,11 +1,12 @@
 const adaptations = [];
 
-function Adaptation(title, description, director, actors, img) {
+function Adaptation(title, description, director, actors, img, imdb) {
   (this.title = title),
     (this.description = description),
     (this.director = director),
     (this.actors = actors),
-    (this.img = img);
+    (this.img = img),
+    (this.imdb = imdb);
 }
 
 adaptations.push(
@@ -26,7 +27,8 @@ adaptations.push(
         img: "/assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/3gNVdhlsW61xvkXwTCX31y_4jN0.jpg"
+    "/assets/3gNVdhlsW61xvkXwTCX31y_4jN0.jpg",
+    "https://www.imdb.com/title/tt0988045/"
   )
 );
 adaptations.push(
@@ -47,7 +49,8 @@ adaptations.push(
         img: "/assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/swQA2-nMmj6TjI7A4t66F3ddv6Q.jpg"
+    "/assets/swQA2-nMmj6TjI7A4t66F3ddv6Q.jpg",
+    "https://www.imdb.com/title/tt1475582/?ref_=nv_sr_srsg_0"
   )
 );
 adaptations.push(
@@ -72,7 +75,8 @@ adaptations.push(
         img: "/assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/enola-holmes-ht-jef-200921_1600696173876_hpMain_2_1x1_608.jpg"
+    "/assets/enola-holmes-ht-jef-200921_1600696173876_hpMain_2_1x1_608.jpg",
+    "https://www.imdb.com/title/tt7846844/?ref_=nv_sr_srsg_0"
   )
 );
 adaptations.push(
@@ -97,6 +101,7 @@ adaptations.push(
         img: "/assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/Elementary-Saison-4-Sherlock-Holmes-Joan-Watson.jpg"
+    "/assets/Elementary-Saison-4-Sherlock-Holmes-Joan-Watson.jpg",
+    "https://www.imdb.com/title/tt2191671/?ref_=nv_sr_srsg_0"
   )
 );

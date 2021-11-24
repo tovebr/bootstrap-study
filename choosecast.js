@@ -87,7 +87,7 @@ function printResult(ids) {
     "mw-50"
   );
   let html = `
-  <h2 class="text-center mb-5">Your dream cast is...</h2><div class="row d-flex justify-content-around">`;
+  <h2 class="text-center">Your dream cast is...</h2><div class="row d-flex justify-content-around">`;
   for (const [i, choosen] of ids.entries()) {
     html += `<div class="form-group col-md-3 text-center">
                 <h3>${
