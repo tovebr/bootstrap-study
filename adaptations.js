@@ -1,9 +1,13 @@
+// the div in which to put the adaptations
 const adaptationsDisplay = document.getElementById("adaptations-display");
 
 function printAdaptations() {
+  //loops through all adaptations
   adaptations.forEach((el, index) => {
+    //assigns id to adaptation
     el.id = index;
 
+    //create html that displays adaptaion
     const html = `<div id="sherlock-${
       el.id
     }" class="card px-0 mx-2 my-2 adaptation">
@@ -39,8 +43,10 @@ function printAdaptations() {
                   </li>
                 </ul>
               </div>`;
+    // insert adaptaion-element
     adaptationsDisplay.insertAdjacentHTML("beforeend", html);
   });
 }
 
+//call printing function
 printAdaptations();
