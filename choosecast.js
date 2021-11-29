@@ -14,7 +14,7 @@ const quizDiv = document.createElement("div");
 quizDiv.classList.add(
   "quiz-container",
   "container-sm",
-  "pt-5",
+  "pt-2",
   "text-light",
   "mw-50"
 );
@@ -27,7 +27,7 @@ const quizDivContainer = document.querySelector(".quiz-container");
 
 //create form
 const formHTML = document.createElement("form");
-formHTML.classList.add("my-5");
+formHTML.classList.add("my-2");
 
 //insert form
 quizDivContainer.appendChild(formHTML);
@@ -58,7 +58,7 @@ function printCast() {
   // loop through what characters shpuld be in the quiz
   for (let i = 0; i < characters.length; i++) {
     // create "holder-element" for current carachter
-    let html = `<h2 class="text-center mt-5 mb-5">Who's your favourite ${
+    let html = `<h2 class="text-center mt-5 mb-3">Who's your favourite ${
       characters[i].slice(0, 1).toUpperCase() + characters[i].slice(1)
     }?</h2><div class="row d-flex justify-content-around">`;
 
