@@ -24,7 +24,7 @@ a:hover {
 }
 
 .landing {
-  background: url(/assets/Namnlöst-1.jpg) center center/cover no-repeat;
+  background: url(assets/Namnlöst-1.jpg) center center/cover no-repeat;
   height: 100vh;
   width: 100vw;
   display: flex;

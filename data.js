@@ -18,16 +18,16 @@ adaptations.push(
       {
         character: "sherlock",
         actor: "Robert Downey Jr",
-        img: "/assets/rdj.jpg",
+        img: "assets/rdj.jpg",
       },
       { character: "watson", actor: "Jude Law", img: "/assets/jl.jpg" },
       {
         character: "other",
         actor: "Rachel McAdams",
-        img: "/assets/Namnlöst-1.jpg",
+        img: "assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/3gNVdhlsW61xvkXwTCX31y_4jN0.jpg",
+    "assets/3gNVdhlsW61xvkXwTCX31y_4jN0.jpg",
     "https://www.imdb.com/title/tt0988045/"
   )
 );
@@ -40,16 +40,16 @@ adaptations.push(
       {
         character: "sherlock",
         actor: "Benedict Cumberbatch",
-        img: "/assets/bc.jpg",
+        img: "assets/bc.jpg",
       },
       { character: "watson", actor: "Martin Freeman", img: "/assets/mf.jpg" },
       {
         character: "other",
         actor: "Amanda Abbington",
-        img: "/assets/Namnlöst-1.jpg",
+        img: "assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/swQA2-nMmj6TjI7A4t66F3ddv6Q.jpg",
+    "assets/swQA2-nMmj6TjI7A4t66F3ddv6Q.jpg",
     "https://www.imdb.com/title/tt1475582/?ref_=nv_sr_srsg_0"
   )
 );
@@ -62,20 +62,20 @@ adaptations.push(
       {
         character: "other",
         actor: "Millie Bobby Brown",
-        img: "/assets/Namnlöst-1.jpg",
+        img: "assets/Namnlöst-1.jpg",
       },
       {
         character: "sherlock",
         actor: "Henry Cavill",
-        img: "/assets/enola_sher.jpg",
+        img: "assets/enola_sher.jpg",
       },
       {
         character: "other",
         actor: "Sam Claflin",
-        img: "/assets/Namnlöst-1.jpg",
+        img: "assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/enola-holmes-ht-jef-200921_1600696173876_hpMain_2_1x1_608.jpg",
+    "assets/enola-holmes-ht-jef-200921_1600696173876_hpMain_2_1x1_608.jpg",
     "https://www.imdb.com/title/tt7846844/?ref_=nv_sr_srsg_0"
   )
 );
@@ -88,20 +88,20 @@ adaptations.push(
       {
         character: "sherlock",
         actor: "Jonny Lee Miller",
-        img: "/assets/jlm.jpg",
+        img: "assets/jlm.jpg",
       },
       {
         character: "watson",
         actor: "Lucy Liu",
-        img: "/assets/ll.jpg",
+        img: "assets/ll.jpg",
       },
       {
         character: "other",
         actor: "Adian Quinn",
-        img: "/assets/Namnlöst-1.jpg",
+        img: "assets/Namnlöst-1.jpg",
       },
     ],
-    "/assets/Elementary-Saison-4-Sherlock-Holmes-Joan-Watson.jpg",
+    "assets/Elementary-Saison-4-Sherlock-Holmes-Joan-Watson.jpg",
     "https://www.imdb.com/title/tt2191671/?ref_=nv_sr_srsg_0"
   )
 );
