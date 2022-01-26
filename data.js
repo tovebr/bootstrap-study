@@ -20,7 +20,7 @@ adaptations.push(
         actor: "Robert Downey Jr",
         img: "assets/rdj.jpg",
       },
-      { character: "watson", actor: "Jude Law", img: "/assets/jl.jpg" },
+      { character: "watson", actor: "Jude Law", img: "assets/jl.jpg" },
       {
         character: "other",
         actor: "Rachel McAdams",
@@ -42,7 +42,7 @@ adaptations.push(
         actor: "Benedict Cumberbatch",
         img: "assets/bc.jpg",
       },
-      { character: "watson", actor: "Martin Freeman", img: "/assets/mf.jpg" },
+      { character: "watson", actor: "Martin Freeman", img: "assets/mf.jpg" },
       {
         character: "other",
         actor: "Amanda Abbington",
